@@ -10,7 +10,7 @@
       },
       "root": "apps/tis-todo-application",
       "sourceRoot": "apps/tis-todo-application/src",
-      "prefix": "tis-workspace",
+      "prefix": "tis",
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
