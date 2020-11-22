@@ -25,7 +25,10 @@
               "apps/tis-todo-application/src/favicon.ico",
               "apps/tis-todo-application/src/assets"
             ],
-            "styles": ["apps/tis-todo-application/src/styles.scss"],
+            "styles": [
+              "./node_modules/@angular/material/prebuilt-themes/indigo-pink.css",
+              "apps/tis-todo-application/src/styles.scss"
+            ],
             "scripts": []
           },
           "configurations": {
@@ -84,7 +87,10 @@
               "apps/tis-todo-application/tsconfig.spec.json",
               "apps/tis-todo-application/tsconfig.editor.json"
             ],
-            "exclude": ["**/node_modules/**", "!apps/tis-todo-application/**/*"]
+            "exclude": [
+              "**/node_modules/**",
+              "!apps/tis-todo-application/**/*"
+            ]
           }
         },
         "test": {
@@ -117,7 +123,9 @@
         "lint": {
           "builder": "@angular-devkit/build-angular:tslint",
           "options": {
-            "tsConfig": ["apps/tis-todo-application-e2e/tsconfig.e2e.json"],
+            "tsConfig": [
+              "apps/tis-todo-application-e2e/tsconfig.e2e.json"
+            ],
             "exclude": [
               "**/node_modules/**",
               "!apps/tis-todo-application-e2e/**/*"
@@ -139,7 +147,10 @@
               "libs/components/tsconfig.lib.json",
               "libs/components/tsconfig.spec.json"
             ],
-            "exclude": ["**/node_modules/**", "!libs/components/**/*"]
+            "exclude": [
+              "**/node_modules/**",
+              "!libs/components/**/*"
+            ]
           }
         },
         "test": {
@@ -169,7 +180,10 @@
               "libs/add-todo-page/tsconfig.lib.json",
               "libs/add-todo-page/tsconfig.spec.json"
             ],
-            "exclude": ["**/node_modules/**", "!libs/add-todo-page/**/*"]
+            "exclude": [
+              "**/node_modules/**",
+              "!libs/add-todo-page/**/*"
+            ]
           }
         },
         "test": {
