@@ -1,0 +1,177 @@
+{
+  "version": 1,
+  "projects": {
+    "tis-todo-application": {
+      "projectType": "application",
+      "schematics": {
+        "@schematics/angular:component": {
+          "style": "scss"
+        }
+      },
+      "root": "apps/tis-todo-application",
+      "sourceRoot": "apps/tis-todo-application/src",
+      "prefix": "tis-workspace",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/apps/tis-todo-application",
+            "index": "apps/tis-todo-application/src/index.html",
+            "main": "apps/tis-todo-application/src/main.ts",
+            "polyfills": "apps/tis-todo-application/src/polyfills.ts",
+            "tsConfig": "apps/tis-todo-application/tsconfig.app.json",
+            "aot": true,
+            "assets": [
+              "apps/tis-todo-application/src/favicon.ico",
+              "apps/tis-todo-application/src/assets"
+            ],
+            "styles": ["apps/tis-todo-application/src/styles.scss"],
+            "scripts": []
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "apps/tis-todo-application/src/environments/environment.ts",
+                  "with": "apps/tis-todo-application/src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "extractCss": true,
+              "namedChunks": false,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "6kb",
+                  "maximumError": "10kb"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "browserTarget": "tis-todo-application:build"
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "tis-todo-application:build:production"
+            }
+          }
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "tis-todo-application:build"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "apps/tis-todo-application/tsconfig.app.json",
+              "apps/tis-todo-application/tsconfig.spec.json",
+              "apps/tis-todo-application/tsconfig.editor.json"
+            ],
+            "exclude": ["**/node_modules/**", "!apps/tis-todo-application/**/*"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "apps/tis-todo-application/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "tis-todo-application-e2e": {
+      "root": "apps/tis-todo-application-e2e",
+      "sourceRoot": "apps/tis-todo-application-e2e/src",
+      "projectType": "application",
+      "architect": {
+        "e2e": {
+          "builder": "@nrwl/cypress:cypress",
+          "options": {
+            "cypressConfig": "apps/tis-todo-application-e2e/cypress.json",
+            "tsConfig": "apps/tis-todo-application-e2e/tsconfig.e2e.json",
+            "devServerTarget": "tis-todo-application:serve"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "tis-todo-application:serve:production"
+            }
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": ["apps/tis-todo-application-e2e/tsconfig.e2e.json"],
+            "exclude": [
+              "**/node_modules/**",
+              "!apps/tis-todo-application-e2e/**/*"
+            ]
+          }
+        }
+      }
+    }
+  },
+  "cli": {
+    "defaultCollection": "@nrwl/angular"
+  },
+  "schematics": {
+    "@nrwl/workspace": {
+      "library": {
+        "linter": "tslint"
+      }
+    },
+    "@nrwl/cypress": {
+      "cypress-project": {
+        "linter": "tslint"
+      }
+    },
+    "@nrwl/node": {
+      "application": {
+        "linter": "tslint"
+      },
+      "library": {
+        "linter": "tslint"
+      }
+    },
+    "@nrwl/nest": {
+      "application": {
+        "linter": "tslint"
+      },
+      "library": {
+        "linter": "tslint"
+      }
+    },
+    "@nrwl/express": {
+      "application": {
+        "linter": "tslint"
+      },
+      "library": {
+        "linter": "tslint"
+      }
+    },
+    "@nrwl/angular:application": {
+      "unitTestRunner": "jest",
+      "e2eTestRunner": "cypress"
+    },
+    "@nrwl/angular:library": {
+      "unitTestRunner": "jest"
+    }
+  },
+  "defaultProject": "tis-todo-application"
+}
