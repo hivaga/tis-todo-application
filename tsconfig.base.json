@@ -15,7 +15,10 @@
     "skipLibCheck": true,
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
-    "paths": {}
+    "paths": {
+      "@tis-workspace/components": ["libs/components/src/index.ts"],
+      "@tis-workspace/add-todo-page": ["libs/add-todo-page/src/index.ts"]
+    }
   },
   "exclude": ["node_modules", "tmp"]
 }

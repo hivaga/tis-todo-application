@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'tis-add-todo-page',
+  selector: 'tis-workspace-add-todo-page',
   templateUrl: './add-todo-page.component.html',
   styleUrls: ['./add-todo-page.component.scss']
 })

@@ -1,16 +1,14 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
 import {MainPageComponent} from "../view/pages/main-page/main-page.component";
-import {AddTodoPageComponent} from "../view/pages/add-todo-page/add-todo-page.component";
+import {AddTodoPageModule} from "@tis-workspace/add-todo-page";
 
-
-const tisComponents = [MainPageComponent, AddTodoPageComponent]
+const tisComponents = [MainPageComponent]
 
 
 @NgModule({
   declarations: [...tisComponents],
-  imports: [BrowserModule],
+  imports: [BrowserModule, AddTodoPageModule],
   providers: [],
   bootstrap: [MainPageComponent],
 })

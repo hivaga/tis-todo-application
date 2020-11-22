@@ -29,6 +29,12 @@
     "tis-todo-application-e2e": {
       "tags": [],
       "implicitDependencies": ["tis-todo-application"]
+    },
+    "components": {
+      "tags": []
+    },
+    "add-todo-page": {
+      "tags": []
     }
   }
 }
