@@ -12,4 +12,7 @@ export class AddTodoPageComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  onNewItemAddedHandler(item:string){
+    console.log('New Item:',item);
+  }
 }

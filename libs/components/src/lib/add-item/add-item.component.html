@@ -1,0 +1,20 @@
+<div fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="10px">
+  <div fxFlex="auto">
+    <form fxFill>
+      <mat-form-field appearance="fill" fxFlex="auto">
+        <mat-label>Todo Task</mat-label>
+        <div fxLayout="row">
+          <input label="item" fxFlex="auto" id="task" type="text" matInput [formControl]="addItemFormControl" placeholder="Ex. Have to change my tyres">
+        </div>
+        <mat-error *ngIf="addItemFormControl.hasError('required')">
+          Task name can not be empty <strong>required</strong>
+        </mat-error>
+      </mat-form-field>
+
+    </form>
+  </div>
+  <button mat-stroked-button color="primary" routerLink="/home" fxFlexAlign="start" style="height: 58px" [disabled]="addItemFormControl.hasError('required')" (click)="onClickHandler()">
+    <mat-icon>add_task</mat-icon>
+    Add Task
+  </button>
+</div>

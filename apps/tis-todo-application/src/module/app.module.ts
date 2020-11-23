@@ -10,6 +10,7 @@ import {ApplicationRoutes} from "./app.routes";
 import {MainPageComponent} from "../view/pages/main-page/main-page.component";
 import {HomePageComponent} from "../view/pages/home-page/home-page.component";
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {FlexModule} from "@angular/flex-layout";
 
 
 
@@ -21,7 +22,7 @@ const angularMaterialModules = [MatInputModule, MatButtonModule, MatIconModule]
   imports: [BrowserModule,
     RouterModule.forRoot(ApplicationRoutes),
     BrowserAnimationsModule,
-    ...angularMaterialModules],
+    ...angularMaterialModules, FlexModule],
   providers: [],
   bootstrap: [MainPageComponent],
 })
