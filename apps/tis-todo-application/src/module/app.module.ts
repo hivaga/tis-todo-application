@@ -14,15 +14,15 @@ import {FlexModule} from "@angular/flex-layout";
 
 
 
-const tisComponents = [MainPageComponent, HomePageComponent]
-const angularMaterialModules = [MatInputModule, MatButtonModule, MatIconModule]
+export const tisComponents = [MainPageComponent, HomePageComponent]
+export const tisAngularMaterialModules = [MatInputModule, MatButtonModule, MatIconModule]
 
 @NgModule({
   declarations: [...tisComponents],
   imports: [BrowserModule,
     RouterModule.forRoot(ApplicationRoutes),
     BrowserAnimationsModule,
-    ...angularMaterialModules, FlexModule],
+    ...tisAngularMaterialModules, FlexModule],
   providers: [],
   bootstrap: [MainPageComponent],
 })
