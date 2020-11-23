@@ -8,10 +8,11 @@ import {FormControl, Validators} from '@angular/forms';
 })
 export class AddItemComponent implements OnInit {
 
-  addItemFormControl:FormControl;
-
   @Output()
-  addItem:EventEmitter<string> = new EventEmitter<string>();
+  readonly addItem:EventEmitter<string> = new EventEmitter<string>();
+
+  readonly addItemFormControl:FormControl;
+
 
   constructor() {
     this.addItemFormControl = new FormControl('', [
@@ -20,11 +21,16 @@ export class AddItemComponent implements OnInit {
   }
 
   ngOnInit(): void {
-
+    this.clean();
   }
 
   onClickHandler(){
     this.addItem.emit(this.currentValue);
+    this.clean();
+  }
+
+  clean(){
+    this.addItemFormControl.reset();
   }
 
   get currentValue(){
