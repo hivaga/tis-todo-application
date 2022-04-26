@@ -11,6 +11,8 @@ on:
 jobs:
 
   hello-world:
+  
+    environment: production
 
     runs-on: ubuntu-latest
     
